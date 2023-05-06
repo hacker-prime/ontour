@@ -1,0 +1,37 @@
+#loading-screen {
+    display: flex;
+    flex-direction: column;
+    gap:25px;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 9999;
+  }
+  
+  .loader {
+  /*   border: 10px solid #11c4e2;
+    border-top-color: #ffffff; */
+  /*   The two lines of css below is taken from my codepen titled 'Loading Screen - ChatGPT' */
+    border: 15px solid #f3f3f3;
+    border-top-color: #11c4e2;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+    background-color: rgba(255, 255, 255, 0.8); /* add light background color */
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  

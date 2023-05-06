@@ -1,0 +1,411 @@
+
+
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root{
+
+    --header-height: 5rem;
+    --font-medium: 500;
+     /*===== Font & Typography =====*/
+    --body-font: "Poppins", sans-serif;
+    --normal-font-size: .938rem;
+    /*===== Color =====*/
+    --dark-color: #2A3B47;
+    --text-color: #697477;
+    --shade-of-blue:rgba(0,171,235,1);
+    /*===== Margin =====*/
+    --mb-1: .5rem;
+    --mb-2: 1rem;
+    --mb-3: 1.5rem;
+    --mb-4: 2rem;
+    /*===== Z Index =====*/
+    --z-fixed: 100;
+
+}
+
+@media screen and (min-width: 768px){
+
+    :root{
+        /* https://stackoverflow.com/questions/15649244/responsive-font-size-in-css */
+        --normal-font-size: 1rem;
+    }
+
+}
+
+*,::before,::after{
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: var(--header-height) 0 0 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1,h2,p{
+    margin: 0;
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.img{
+    max-width: 100%;
+    display: block;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+  
+.logo .img {
+    /* width: 40px; */
+    /* I have to use this width and not the one commented out because the commented out one is for the smaller version of the logo used in the ink rel="icon" tag */
+    width:150px;
+    margin-right: 0.6rem;
+    margin-top: -0.6rem;
+}
+
+.btn {
+    background-color: var(--shade-of-blue);
+    color: #fff !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 3rem;
+    font-weight: var(--font-semi-bold);
+    transition: .3s;
+}
+
+.btn:hover{
+    background-color: #fff !important;
+    color: var(--shade-of-blue) !important;
+    box-shadow: 2px 2px 30px rgb(0 0 0 / 20%) !important;
+}
+
+/* ==========> Hamburger Menu <========== */
+  
+.hamburger-menu {
+    position: relative;
+    z-index: 99;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    display: none;
+}
+
+.hamburger-menu .bar {
+    position: relative;
+    width: 100%;
+    height: 3px;
+    background-color: var(--shade-of-blue);
+    border-radius: 3px;
+    transition: 0.5s;
+}
+
+.bar::before,
+.bar::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--shade-of-blue);
+    border-radius: 3px;
+    transition: 0.5s;
+}
+
+.bar::before {
+    transform: translateY(-8px);
+}
+
+.bar::after {
+    transform: translateY(8px);
+}
+
+.nav.active .hamburger-menu .bar {
+    background-color: transparent;
+}
+
+.nav.active .bar::before {
+    transform: translateY(0) rotate(-45deg);
+}
+
+.nav.active .bar::after {
+    transform: translateY(0) rotate(45deg);
+}  
+  
+/* ==========> Hamburger Menu <========== */
+
+/* Required To Test The Active Menu Iem On Page Scroll Feature  */
+
+section {
+    height: 100vh;
+}
+
+#airport{
+    /* background-color: rgba(0,171,235,1); */
+    height: 100vh;
+}
+
+
+#tourstransfer {
+    /* background-color: aquamarine; */
+    height: 100vh;
+}
+
+#alltours {
+    /* background-color: aquamarine; */
+    height: 100vh;
+}
+
+/* #services {
+    background-color: #59c639;
+    height: 100vh;
+}
+
+
+#features {
+    background-color: #FF5A5F;
+    height: 100vh;
+}
+
+#partners{
+    background-color: bisque;
+    height: 100vh;
+} */
+
+#contact{
+    background-color: deeppink; 
+    height: 100vh;
+} 
+
+/* Required To Test The Active Menu Iem On Page Scroll Feature  */
+
+.links a {
+    margin-left: 4.5rem;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.links,.overlay{
+    display: none;
+}
+
+/*===== NAV =====*/
+.nav-container{
+    max-width: 1350px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-column-gap: 2rem;
+    width: calc(100% - 2rem);
+    margin-left: var(--mb-2);
+    margin-right: var(--mb-2);
+}
+.l-header{
+    width: 100%;
+    position: fixed;
+    /* position: sticky; */
+    top: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    background-color: white;
+}
+
+.nav{
+    height: calc(var(--header-height));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__item{
+    margin-bottom: var(--mb-4);
+}
+.nav__link{
+    position: relative;
+    color: var(--dark-color);
+}
+.nav__link:hover{
+    color: var(--shade-of-blue);
+    transition: .5s ease;
+}
+.nav__logo{
+    color: var(--white-color);
+}
+.nav__toggle{
+    color: var(--shade-of-blue);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/*===== NAV =====*/
+
+/*Active menu*/
+.active__menu::after{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: .18rem;
+    left: 0;
+    top: 1.3rem;
+}
+
+@media screen and (min-width: 1024px){
+    .nav-container{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* https://stackoverflow.com/questions/26696254/media-queries-firing-at-wrong-width */
+@media screen and (max-width: 955px) {
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        max-width: 450px;
+        width: 65%;
+        height: 100%;
+        /* background-color: var(--mainColor); */
+        background-color: #fff;
+        z-index: 95;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        transition: 0.5s;
+    }
+
+    .links ul {
+        flex-direction: column;
+    }
+
+    .links a {
+        color: var(--shade-of-blue) !important;
+        margin-left: 0;
+        padding: 2rem 0;
+    }
+
+    .links .btn {
+        background: none;
+    }
+
+    .overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.5s;
+    }
+
+    .nav.active .links {
+        transform: translateX(0);
+        box-shadow: 0 0 50px 2px rgba(0, 0, 0, 0.4);
+    }    
+
+    .nav.active .overlay {
+        pointer-events: all;
+        opacity: 1;
+    }
+
+    .nav__menu {
+        /* background-color: pink; */
+        display: none;
+    }
+    .hamburger-menu{
+        display: flex;
+    }
+    
+}
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries */
+/* If the browser window is 900px or smaller */
+@media screen and (max-width: 900px) and (orientation: landscape) { 
+
+    .links a {
+        padding: 1rem 0;
+    }
+
+}  
+
+@media screen and (max-width: 768px){
+
+    .nav__menu{
+        position: fixed;
+        top: var(--header-height);
+        right: -100%;
+        width: 80%;
+        height: 100%;
+        padding: 2rem;
+        transition: .5s;
+        box-shadow: -1px 0 4px rgb(14 55 63 / 15%);
+    }
+
+}
+
+@media screen and (min-width: 768px){
+
+    body{
+        margin: 0;
+    }
+    .section{
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+    }
+    .section-title{
+        margin-bottom: 3rem;
+    }
+    .section-title::after{
+        width: 64px;
+        top: 3rem;
+    }
+    .nav__list{
+        display: flex;
+    }
+    .nav__item{
+        margin-left: var(--mb-4);
+        margin-bottom: 0;
+    }
+
+    .nav__link{
+        color: var(--white-color);
+    }
+    /* .nav__link:hover{
+        color: var(--white-color);
+    } */
+    .active__menu::after{
+        background-color: var(--shade-of-blue);
+    }
+
+}
+
+
