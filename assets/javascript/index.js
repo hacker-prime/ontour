@@ -2,6 +2,12 @@
 const sections = document.querySelectorAll('section[id]')
 const navLi = document.querySelectorAll("header .nav__menu ul li a");
 
+// if(window.scrollY <= 79 && window.scrollY >= 0){
+//   document.querySelector('.nav__menu a[href*=' + sections[0].id + ']').classList.add('active__menu')
+//   document.querySelector('.nav__menu a[href*=' + sections[sections.length-1].id + ']').classList.remove('active__menu')
+// }
+
+
 window.addEventListener('scroll', scrollActive)
 
 function scrollActive(){
@@ -27,10 +33,29 @@ function scrollActive(){
 
             // console.log("Current Section ID:" + sectionId);
             sectionId = current.getAttribute('id');
+            console.log("Current Section ID:" + sectionId);
             // document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active__menu')
         }else{
             document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active__menu')
         }
+
+        if(window.scrollY <= 79 && window.scrollY >= 0){
+          document.querySelector('.nav__menu a[href*=' + sections[0].id + ']').classList.add('active__menu')
+          document.querySelector('.nav__menu a[href*=' + sections[sections.length-1].id + ']').classList.remove('active__menu')
+          // Scroll To Top
+          // window.scrollTo({
+          //   top: 0,
+          //   behavior: 'smooth' // This enables smooth scrolling
+          // });
+        }
+
+        
+
+        // This is to compensate for changing position fixed to position sticky for .l-header in index.css. I encoutered this issue before months or at least 1 year ago but I remember it vaguely
+        // if(scrollY <= 79){
+        //   document.querySelector('.nav__menu a[href*=' + sectionId[0] + ']').classList.add('active__menu')
+        // }
+
     })
 
     // console.log("Current Section ID:" + sectionId);
@@ -38,38 +63,61 @@ function scrollActive(){
 
 }
 
+document.querySelector('.nav__menu a[href*=' + sections[0].id + ']').addEventListener("click",function(){
+
+  if(window.scrollY > 79){
+
+
+    // var element = document.getElementById('airport');
+    // element.style.height = '110vh';
+
+    // Scroll To Top
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // This enables smooth scrolling
+    });
+    
+  }
+
+})
+
+// menuitems = document.querySelectorAll('section[id]');
+// document.querySelector('.nav__menu a[href*=' + sections[0].id + ']').classList.add('active__menu')
+
+
+
 /*===== SCROLL SECTIONS ACTIVE LINK =====*/
 
 console.log("Scroll Bar: " + window.scrollY);
 
-var a = document.getElementById("home");
-var topPos = a.offsetTop;
-console.log("Home Section - Section Top: " + topPos);
+// var a = document.getElementById("home");
+// var topPos = a.offsetTop;
+// console.log("Home Section - Section Top: " + topPos);
 
 
-var about = document.getElementById("about");
-var topPosAbout = about.offsetTop;
-console.log("About Section - Section Top: " + topPosAbout);
+// var about = document.getElementById("about");
+// var topPosAbout = about.offsetTop;
+// console.log("About Section - Section Top: " + topPosAbout);
 
 
-var services = document.getElementById("services");
-var topPosServices = services.offsetTop;
-console.log("Services Section - Section Top: " + topPosServices);
+// var services = document.getElementById("services");
+// var topPosServices = services.offsetTop;
+// console.log("Services Section - Section Top: " + topPosServices);
 
 
-var features = document.getElementById("features");
-var topPosFeatures = features.offsetTop;
-console.log("Features Section - Section Top: " + topPosFeatures);
+// var features = document.getElementById("features");
+// var topPosFeatures = features.offsetTop;
+// console.log("Features Section - Section Top: " + topPosFeatures);
 
 
-var partners = document.getElementById("partners");
-var topPosPartners = partners.offsetTop;
-console.log("Partners Section - Section Top: " + topPosPartners);
+// var partners = document.getElementById("partners");
+// var topPosPartners = partners.offsetTop;
+// console.log("Partners Section - Section Top: " + topPosPartners);
 
 
-var b = document.getElementById("contact");
-var topPos2 = b.offsetTop;
-console.log("Contact Section - Section Top: " + topPos2);
+// var b = document.getElementById("contact");
+// var topPos2 = b.offsetTop;
+// console.log("Contact Section - Section Top: " + topPos2);
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Window/innerHeight
 let intViewportHeight = window.innerHeight;
@@ -159,3 +207,45 @@ function touchEnd(){
 
 }
 
+// ChatGPT
+var bar = document.getElementById('bar');
+bar.addEventListener('click', function(){
+
+    // To change the colors of the .bar::before and .bar::after pseudo-elements, you can dynamically insert new CSS rules using the insertRule() method. 
+    // In this approach, we create a new <style> element using document.createElement('style'). We set the innerHTML property of the <style> element to define new CSS rules targeting the .bar::before and .bar::after pseudo-elements and set the desired background-color values using !important to override any existing styles.
+    // Finally, we append the <style> element to the <head> element using document.head.appendChild(styleElement).
+    // To apply the new colors, you can call the changeColors() function. This will dynamically insert the new CSS rules, overriding the existing styles for the .bar::before and .bar::after pseudo-elements.
+    // Make sure you have the .bar element and its ::before and ::after pseudo-elements defined in your HTML and CSS code for this approach to work correctly.
+
+    // In this updated function, we use barElement.classList.toggle('selected') to toggle the selected class on the .bar element. By checking the return value of toggle(), we determine if the class was added or removed.
+    // If the class selected was added (indicating the first click), we set the background-color of the .bar::before and .bar::after pseudo-elements to blue.
+    // If the class selected was removed (indicating the second click), we set the background-color of the .bar::before and .bar::after pseudo-elements to white.
+    // By creating a new <style> element and inserting the appropriate CSS rules, we dynamically change the colors of the pseudo-elements.
+    // Make sure to have the .bar element and its ::before and ::after pseudo-elements defined in your HTML and CSS code for this approach to work correctly.
+
+    const barElement = document.querySelector('.bar');
+    const styleElement = document.createElement('style');
+    const isBlue = barElement.classList.toggle('selected');
+  
+    if (isBlue) {
+      styleElement.innerHTML = `
+        .bar::before {
+          background-color: var(--on-tour-logo-color-2);
+        }
+        .bar::after {
+          background-color: var(--on-tour-logo-color-2);
+        }
+      `;
+    } else {
+      styleElement.innerHTML = `
+        .bar::before {
+          background-color: var(--white-color);
+        }
+        .bar::after {
+          background-color: var(--white-color);
+        }
+      `;
+    }
+  
+    document.head.appendChild(styleElement);
+})

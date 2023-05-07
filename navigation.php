@@ -3,7 +3,7 @@
 
         <div class="logo">
             <!-- <img class="img" src="assets/images/logo.jpeg" alt="Logo" /> -->
-            <!-- <h1>Island Routes</h1> -->
+            <h1>On Tour</h1>
         </div>
 
         <div class="nav__menu" id="nav-menu">
@@ -27,7 +27,7 @@
         <div class="overlay"></div>  
 
         <div class="hamburger-menu">
-            <div class="bar"></div>
+            <div id="bar" class="bar"></div>
         </div>
 
     </nav>
