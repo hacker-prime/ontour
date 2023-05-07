@@ -22,7 +22,7 @@
   <div class="form-section">
     
     <div class="form-row datetime-visible">
-      <label for="pick-up-date">Pick Up Date and Time:</label>
+      <label for="pick-up-date">Pick Up Date & Time:</label>
       <input type="text" id="pick-up-date" name="pick-up-date" required>
       <div class="datetime-invisible">
         <input type="datetime-local"  id="pick-up-date" name="pick-up-date" required></div>
