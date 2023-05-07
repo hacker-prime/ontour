@@ -39,22 +39,12 @@ function scrollActive(){
             document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active__menu')
         }
 
-        if(window.scrollY <= 79 && window.scrollY >= 0){
+        if(window.scrollY <= 115 && window.scrollY >= 0){
           document.querySelector('.nav__menu a[href*=' + sections[0].id + ']').classList.add('active__menu')
           document.querySelector('.nav__menu a[href*=' + sections[sections.length-1].id + ']').classList.remove('active__menu')
-          // Scroll To Top
-          // window.scrollTo({
-          //   top: 0,
-          //   behavior: 'smooth' // This enables smooth scrolling
-          // });
+
         }
-
-        
-
-        // This is to compensate for changing position fixed to position sticky for .l-header in index.css. I encoutered this issue before months or at least 1 year ago but I remember it vaguely
-        // if(scrollY <= 79){
-        //   document.querySelector('.nav__menu a[href*=' + sectionId[0] + ']').classList.add('active__menu')
-        // }
+       
 
     })
 
@@ -63,23 +53,34 @@ function scrollActive(){
 
 }
 
-document.querySelector('.nav__menu a[href*=' + sections[0].id + ']').addEventListener("click",function(){
+// document.querySelector('.nav__menu a[href*=' + sections[0].id + ']').addEventListener("click",function(){
 
-  if(window.scrollY > 79){
+//   if(window.scrollY >= 100){
 
 
-    // var element = document.getElementById('airport');
-    // element.style.height = '110vh';
+//     // var element = document.getElementById('airport');
+//     // element.style.height = '110vh';
 
-    // Scroll To Top
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth' // This enables smooth scrolling
-    });
+//     // Scroll To Top
+//     window.scrollTo({
+//       top: 0,
+//       behavior: 'smooth' 
+//     });
     
-  }
+//   }
 
-})
+// })
+
+var button = document.getElementById('airport');
+button.addEventListener('click', scrollToTop);
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
 
 // menuitems = document.querySelectorAll('section[id]');
 // document.querySelector('.nav__menu a[href*=' + sections[0].id + ']').classList.add('active__menu')
@@ -90,34 +91,7 @@ document.querySelector('.nav__menu a[href*=' + sections[0].id + ']').addEventLis
 
 console.log("Scroll Bar: " + window.scrollY);
 
-// var a = document.getElementById("home");
-// var topPos = a.offsetTop;
-// console.log("Home Section - Section Top: " + topPos);
 
-
-// var about = document.getElementById("about");
-// var topPosAbout = about.offsetTop;
-// console.log("About Section - Section Top: " + topPosAbout);
-
-
-// var services = document.getElementById("services");
-// var topPosServices = services.offsetTop;
-// console.log("Services Section - Section Top: " + topPosServices);
-
-
-// var features = document.getElementById("features");
-// var topPosFeatures = features.offsetTop;
-// console.log("Features Section - Section Top: " + topPosFeatures);
-
-
-// var partners = document.getElementById("partners");
-// var topPosPartners = partners.offsetTop;
-// console.log("Partners Section - Section Top: " + topPosPartners);
-
-
-// var b = document.getElementById("contact");
-// var topPos2 = b.offsetTop;
-// console.log("Contact Section - Section Top: " + topPos2);
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Window/innerHeight
 let intViewportHeight = window.innerHeight;
