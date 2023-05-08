@@ -12,6 +12,20 @@ window.addEventListener('scroll', scrollActive)
 
 function scrollActive(){
 
+  if(window.scrollY < 109){
+
+
+    var element = document.getElementById('airport');
+    element.style.height = 'auto';
+  
+    // Scroll To Top
+    // window.scrollTo({
+    //   top: 0,
+    //   behavior: 'smooth' 
+    // });
+    
+  }
+
     const scrollY = window.pageYOffset
     let current = "";
 
@@ -53,33 +67,51 @@ function scrollActive(){
 
 }
 
-// document.querySelector('.nav__menu a[href*=' + sections[0].id + ']').addEventListener("click",function(){
+document.querySelector('.nav__menu a[href*=' + sections[0].id + ']').addEventListener("click",function(){
 
-//   if(window.scrollY >= 100){
+  if(window.scrollY > 109){
 
 
-//     // var element = document.getElementById('airport');
-//     // element.style.height = '110vh';
+    var element = document.getElementById('airport');
+    element.style.height = '110vh';
 
-//     // Scroll To Top
-//     window.scrollTo({
-//       top: 0,
-//       behavior: 'smooth' 
-//     });
+    // Scroll To Top
+    // window.scrollTo({
+    //   top: 0,
+    //   behavior: 'smooth' 
+    // });
     
-//   }
+  } 
 
-// })
+  if(window.scrollY < 109){
 
-var button = document.getElementById('airport');
-button.addEventListener('click', scrollToTop);
 
-function scrollToTop() {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
-}
+    var element = document.getElementById('airport');
+    element.style.height = 'auto';
+
+    // Scroll To Top
+    // window.scrollTo({
+    //   top: 0,
+    //   behavior: 'smooth' 
+    // });
+    
+  }
+
+})
+
+
+
+
+
+// var button = document.getElementById('airport');
+// button.addEventListener('click', scrollToTop);
+
+// function scrollToTop() {
+//   window.scrollTo({
+//     top: 0,
+//     behavior: 'smooth'
+//   });
+// }
 
 
 // menuitems = document.querySelectorAll('section[id]');
