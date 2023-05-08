@@ -76,7 +76,8 @@
 
 .img-slider .slide .info p{
   color: var(--on-tour-logo-yellow);
-  background: rgba(0, 0, 0, 0.1);
+  /* background: rgba(0, 0, 0, 0.1); */
+  background: rgba(0, 0, 0, 0.2);
   font-size: 16px;
   width: 60%;
   padding: 10px;
