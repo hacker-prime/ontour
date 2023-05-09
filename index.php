@@ -24,7 +24,7 @@
 
     ?>
     
-    <section id="airport">
+    <section class="airport" id="airport">
 
     <?php 
     
@@ -52,6 +52,9 @@
     <script src="assets/javascript/index.js"></script>    
     <script src="assets/javascript/form.js"></script>    
     <script src="assets/javascript/image_slider.js"></script>    
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!--===== SCROLL REVEAL =====-->
 
 </body>
 

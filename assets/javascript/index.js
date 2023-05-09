@@ -1,3 +1,37 @@
+window.onload = function () { 
+
+  // scrol reveal after 6 seconds
+  setTimeout(function() {
+
+      const sr = ScrollReveal({
+          origin: 'top',
+          distance: '40px',
+          duration: 2000,
+          reset:true,
+          easing:'ease',
+          wait:'1s',
+      })
+
+
+      // sr.reveal('.left',{delay:400,origin:'left'})
+      // sr.reveal('.right',{delay:400,origin:'right'})
+      sr.reveal('.airport',{delay:300,origin:'top'})
+      // sr.reveal('.book_now_form_container',{delay:400,origin:'top'})
+
+
+      // if (window.innerWidth <= 412) {
+      //    sr.reveal('.left',{delay:400,origin:'top'})
+      //    sr.reveal('.right',{delay:400,origin:'bottom'})
+      // //    sr.reveal('.slide_show_container',{delay:250,origin:'top',move:'5px'})
+      // //    sr.reveal('.book_now_form_container',{delay:250,origin:'bottom'})
+      // }
+
+      // sr.reveal('.safety_container_first_half',{delay:400,origin:'bottom'})
+
+  }, 3000);
+
+}
+
 /*===== SCROLL SECTIONS ACTIVE LINK =====*/
 const sections = document.querySelectorAll('section[id]')
 const navLi = document.querySelectorAll("header .nav__menu ul li a");
@@ -255,3 +289,4 @@ bar.addEventListener('click', function(){
   
     document.head.appendChild(styleElement);
 })
+
