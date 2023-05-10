@@ -18,9 +18,9 @@
 
     <?php 
 
-    require_once "loadingscreen.php";
+        require_once "loadingscreen.php";
 
-    require_once "navigation.php";
+        require_once "navigation.php";
 
     ?>
     
@@ -36,7 +36,15 @@
 
     </section>
 
-    <section id="tourstransfer">
+    <section class="tourstransfer" id="tourstransfer">
+
+    <?php 
+    
+        require_once('tours_form.php');
+
+        require_once('image_slider_2.php');
+
+    ?>
 
     </section>
 

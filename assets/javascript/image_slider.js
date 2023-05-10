@@ -1,55 +1,61 @@
-    var slides = document.querySelectorAll('.slide');
-    var btns = document.querySelectorAll('.btn');
-    let currentSlide = 1;
+var sliders = document.querySelectorAll('.slider');
 
-    // Javascript for image slider manual navigation
-    var manualNav = function(manual){
-      slides.forEach((slide) => {
-        slide.classList.remove('active');
+sliders.forEach((slider) => {
+  var slides = slider.querySelectorAll('.slide');
+  var btns = slider.querySelectorAll('.btn');
+  slider.currentSlide = 0; // Store the current slide index as a property of the slider element
 
-        btns.forEach((btn) => {
-          btn.classList.remove('active');
-        });
-      });
-
-      slides[manual].classList.add('active');
-      btns[manual].classList.add('active');
-    }
-
-    btns.forEach((btn, i) => {
-      btn.addEventListener("click", () => {
-        manualNav(i);
-        currentSlide = i;
-      });
+  // Javascript for image slider manual navigation
+  var manualNav = function(manual){
+    slides.forEach((slide) => {
+      slide.classList.remove('active');
     });
 
-    // Javascript for image slider autoplay navigation
-    var repeat = function(activeClass){
-      let active = document.getElementsByClassName('active');
-      let i = 1;
+    btns.forEach((btn) => {
+      btn.classList.remove('active');
+    });
 
-      var repeater = () => {
-        setTimeout(function(){
-          [...active].forEach((activeSlide) => {
-            activeSlide.classList.remove('active');
-          });
+    slides[manual].classList.add('active');
+    btns[manual].classList.add('active');
+    slider.currentSlide = manual; // Update the current slide for this slider
+  };
 
-        slides[i].classList.add('active');
-        btns[i].classList.add('active');
-        i++;
+  btns.forEach((btn, i) => {
+    btn.addEventListener("click", () => {
+      manualNav(i);
+    });
+  });
 
-        if(slides.length == i){
-          i = 0;
+  // Javascript for image slider autoplay navigation
+  var repeat = function(activeClass){
+    let active = slider.getElementsByClassName('active');
+
+    var repeater = () => {
+      setTimeout(function(){
+        [...active].forEach((activeSlide) => {
+          activeSlide.classList.remove('active');
+        });
+
+        slides[slider.currentSlide].classList.add('active');
+        btns[slider.currentSlide].classList.add('active');
+        slider.currentSlide++;
+
+        if (slider.currentSlide === slides.length) {
+          slider.currentSlide = 0;
         }
-        if(i >= slides.length){
+        if (slider.currentSlide >= slides.length) {
           return;
         }
         repeater();
       }, 10000);
-      }
-      repeater();
-    }
-    repeat();
+    };
+    repeater();
+  };
+  repeat();
+});
+
+
+
 
 // ChatGPT - adjust width of one element based on the width of another element as the screens width changes with javascript 
 // Add the event listener

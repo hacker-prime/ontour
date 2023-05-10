@@ -1,24 +1,5 @@
-<form id="tours_form">
+<form id="airport_form">
   
-  <!-- <div class="form-section">
-    <div class="form-row">
-      <label for="first-name">First Name:</label>
-      <input type="text" id="first-name" name="first-name" required>
-    </div>
-    <div class="form-row">
-      <label for="last-name">Last Name:</label>
-      <input type="text" id="last-name" name="last-name" required>
-    </div>
-    <div class="form-row">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-    </div>
-    <div class="form-row">
-      <label for="phone">Phone Number:</label>
-      <input type="tel" id="phone" name="phone" required>
-    </div>
-  </div> -->
-    
   <div class="form-section">
     
     <div class="form-row datetime-visible">

@@ -7,7 +7,7 @@ window.onload = function () {
           origin: 'top',
           distance: '40px',
           duration: 2000,
-          reset:true,
+          // reset:true,
           easing:'ease',
           wait:'1s',
       })
@@ -16,6 +16,7 @@ window.onload = function () {
       // sr.reveal('.left',{delay:400,origin:'left'})
       // sr.reveal('.right',{delay:400,origin:'right'})
       sr.reveal('.airport',{delay:300,origin:'top'})
+      sr.reveal('.tourstransfer',{delay:300,origin:'top'})
       // sr.reveal('.book_now_form_container',{delay:400,origin:'top'})
 
 
