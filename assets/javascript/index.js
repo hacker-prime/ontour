@@ -249,45 +249,45 @@ function touchEnd(){
 }
 
 // ChatGPT
-var bar = document.getElementById('bar');
-bar.addEventListener('click', function(){
+// var bar = document.getElementById('bar');
+// bar.addEventListener('click', function(){
 
-    // To change the colors of the .bar::before and .bar::after pseudo-elements, you can dynamically insert new CSS rules using the insertRule() method. 
-    // In this approach, we create a new <style> element using document.createElement('style'). We set the innerHTML property of the <style> element to define new CSS rules targeting the .bar::before and .bar::after pseudo-elements and set the desired background-color values using !important to override any existing styles.
-    // Finally, we append the <style> element to the <head> element using document.head.appendChild(styleElement).
-    // To apply the new colors, you can call the changeColors() function. This will dynamically insert the new CSS rules, overriding the existing styles for the .bar::before and .bar::after pseudo-elements.
-    // Make sure you have the .bar element and its ::before and ::after pseudo-elements defined in your HTML and CSS code for this approach to work correctly.
+//     // To change the colors of the .bar::before and .bar::after pseudo-elements, you can dynamically insert new CSS rules using the insertRule() method. 
+//     // In this approach, we create a new <style> element using document.createElement('style'). We set the innerHTML property of the <style> element to define new CSS rules targeting the .bar::before and .bar::after pseudo-elements and set the desired background-color values using !important to override any existing styles.
+//     // Finally, we append the <style> element to the <head> element using document.head.appendChild(styleElement).
+//     // To apply the new colors, you can call the changeColors() function. This will dynamically insert the new CSS rules, overriding the existing styles for the .bar::before and .bar::after pseudo-elements.
+//     // Make sure you have the .bar element and its ::before and ::after pseudo-elements defined in your HTML and CSS code for this approach to work correctly.
 
-    // In this updated function, we use barElement.classList.toggle('selected') to toggle the selected class on the .bar element. By checking the return value of toggle(), we determine if the class was added or removed.
-    // If the class selected was added (indicating the first click), we set the background-color of the .bar::before and .bar::after pseudo-elements to blue.
-    // If the class selected was removed (indicating the second click), we set the background-color of the .bar::before and .bar::after pseudo-elements to white.
-    // By creating a new <style> element and inserting the appropriate CSS rules, we dynamically change the colors of the pseudo-elements.
-    // Make sure to have the .bar element and its ::before and ::after pseudo-elements defined in your HTML and CSS code for this approach to work correctly.
+//     // In this updated function, we use barElement.classList.toggle('selected') to toggle the selected class on the .bar element. By checking the return value of toggle(), we determine if the class was added or removed.
+//     // If the class selected was added (indicating the first click), we set the background-color of the .bar::before and .bar::after pseudo-elements to blue.
+//     // If the class selected was removed (indicating the second click), we set the background-color of the .bar::before and .bar::after pseudo-elements to white.
+//     // By creating a new <style> element and inserting the appropriate CSS rules, we dynamically change the colors of the pseudo-elements.
+//     // Make sure to have the .bar element and its ::before and ::after pseudo-elements defined in your HTML and CSS code for this approach to work correctly.
 
-    const barElement = document.querySelector('.bar');
-    const styleElement = document.createElement('style');
-    const isBlue = barElement.classList.toggle('selected');
+//     const barElement = document.querySelector('.bar');
+//     const styleElement = document.createElement('style');
+//     const isBlue = barElement.classList.toggle('selected');
   
-    if (isBlue) {
-      styleElement.innerHTML = `
-        .bar::before {
-          background-color: var(--on-tour-logo-color-2);
-        }
-        .bar::after {
-          background-color: var(--on-tour-logo-color-2);
-        }
-      `;
-    } else {
-      styleElement.innerHTML = `
-        .bar::before {
-          background-color: var(--white-color);
-        }
-        .bar::after {
-          background-color: var(--white-color);
-        }
-      `;
-    }
+//     if (isBlue) {
+//       styleElement.innerHTML = `
+//         .bar::before {
+//           background-color: var(--on-tour-logo-color-2);
+//         }
+//         .bar::after {
+//           background-color: var(--on-tour-logo-color-2);
+//         }
+//       `;
+//     } else {
+//       styleElement.innerHTML = `
+//         .bar::before {
+//           background-color: var(--white-color);
+//         }
+//         .bar::after {
+//           background-color: var(--white-color);
+//         }
+//       `;
+//     }
   
-    document.head.appendChild(styleElement);
-})
+//     document.head.appendChild(styleElement);
+// })
 

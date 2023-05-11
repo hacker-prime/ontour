@@ -6,7 +6,7 @@ sliders.forEach((slider) => {
   slider.currentSlide = 0; // Store the current slide index as a property of the slider element
 
   // Javascript for image slider manual navigation
-  var manualNav = function(manual){
+  var manualNav = function(manual) {
     slides.forEach((slide) => {
       slide.classList.remove('active');
     });
@@ -27,30 +27,29 @@ sliders.forEach((slider) => {
   });
 
   // Javascript for image slider autoplay navigation
-  var repeat = function(activeClass){
+  var repeat = function(activeClass) {
     let active = slider.getElementsByClassName('active');
 
     var repeater = () => {
-      setTimeout(function(){
+      setTimeout(function() {
         [...active].forEach((activeSlide) => {
           activeSlide.classList.remove('active');
         });
 
-        slides[slider.currentSlide].classList.add('active');
-        btns[slider.currentSlide].classList.add('active');
         slider.currentSlide++;
-
-        if (slider.currentSlide === slides.length) {
+        if (slider.currentSlide >= slides.length) {
           slider.currentSlide = 0;
         }
-        if (slider.currentSlide >= slides.length) {
-          return;
-        }
+
+        slides[slider.currentSlide].classList.add('active');
+        btns[slider.currentSlide].classList.add('active');
+
         repeater();
       }, 10000);
     };
     repeater();
   };
+
   repeat();
 });
 
@@ -66,8 +65,13 @@ resizeElement2();
 
 // Event listener function
 function resizeElement2() {
-  var element1Width = document.getElementById('airport_form').offsetWidth;
-  document.getElementById('img-slider').style.width = element1Width + 'px';
+  var airport_form_elements = document.getElementsByClassName('form');
+  var elementWidth = airport_form_elements[0].offsetWidth; // Assuming all elements have the same width
+  
+  var sliders = document.getElementsByClassName('img-slider');
+  for (var i = 0; i < sliders.length; i++) {
+    sliders[i].style.width = elementWidth + 'px';
+  }
 }
 
 // window.addEventListener('resize', resize_element_height);

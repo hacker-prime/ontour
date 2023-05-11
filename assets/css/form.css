@@ -63,7 +63,13 @@ input {
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 0.25rem;
+  color:var(--on-tour-logo-color-1);
 }
+
+#tour::placeholder,#hotel::placeholder,#service_type::placeholder {
+  color:var(--on-tour-logo-color-1); /* Set the desired color */
+}
+
 
 /* https://stackoverflow.com/questions/4603408/how-to-select-3rd-div-which-has-specific-css-class */
 /* form div:nth-of-type(3) {
@@ -104,6 +110,28 @@ button{
   cursor:pointer;
   margin-top: 20px;
   /* font-family: "Montserrat"; */
+}
+
+.tour,.hotel,.service_type{
+  position:relative;
+}
+
+.listoftours,.listofhotels,.listofservicetypes{
+  position: absolute;
+  display:none;
+  bottom:35px;
+  background-color: white;
+  color:var(--on-tour-logo-color-1);
+  height: 200px; /* Adjust the height as needed */
+  overflow: auto;
+  border-radius:5px;
+  padding:10px;
+  cursor:pointer;
+}
+
+.listofservicetypes{
+  width: 100%;
+  height: 75px;
 }
 
 

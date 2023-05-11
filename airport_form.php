@@ -1,4 +1,4 @@
-<form id="tours_form">
+<form class="form" id="tours_form">
   
   <!-- <div class="form-section">
     <div class="form-row">
