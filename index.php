@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="assets/css/index.css" />
     <link rel="stylesheet" href="assets/css/form.css" />
     <link rel="stylesheet" href="assets/css/image_slider.css" />
-    <link rel="stylesheet" href="assets/css/loadingscreen.css" />
+    <!-- <link rel="stylesheet" href="assets/css/loadingscreen.css" /> -->
     <link rel="icon" href="assets/images/logo.jpeg">
 </head>
 
@@ -18,7 +18,7 @@
 
     <?php 
 
-        require_once "loadingscreen.php";
+        // require_once "loadingscreen.php";
 
         require_once "navigation.php";
 
@@ -56,7 +56,7 @@
 
     </section>
 
-    <script src="assets/javascript/loadingscreen.js"></script>
+    <!-- <script src="assets/javascript/loadingscreen.js"></script> -->
     <script src="assets/javascript/index.js"></script>    
     <script src="assets/javascript/form.js"></script>    
     <script src="assets/javascript/image_slider.js"></script>    
