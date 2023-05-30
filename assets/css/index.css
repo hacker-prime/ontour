@@ -5,7 +5,8 @@
 
 :root{
 
-    --header-height: 5rem;
+    /* --header-height: 5rem; */
+    --header-height: 6.3rem;
     --font-medium: 500;
      /*===== Font & Typography =====*/
     --body-font: "Poppins", sans-serif;
