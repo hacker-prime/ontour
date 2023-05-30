@@ -78,7 +78,7 @@ a{
     /* I have to use this width and not the one commented out because the commented out one is for the smaller version of the logo used in the ink rel="icon" tag */
     width:150px;
     margin-right: 0.6rem;
-    margin-top: -0.6rem;
+    /* margin-top: -0.6rem; */
 }
 
 .btn {

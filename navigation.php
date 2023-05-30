@@ -2,8 +2,8 @@
     <nav class="nav nav-container">
 
         <div class="logo">
-            <!-- <img class="img" src="assets/images/logo.jpeg" alt="Logo" /> -->
-            <h1>OnTour</h1>
+            <img class="img" src="assets/images/logo.jpeg" alt="Logo" />
+            <!-- <h1>OnTour</h1> -->
         </div>
 
         <div class="nav__menu" id="nav-menu">
