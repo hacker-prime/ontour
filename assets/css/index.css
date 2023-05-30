@@ -246,7 +246,7 @@ section {
 }
 
 .nav{
-    height: calc(var(--header-height));
+    /* height: calc(var(--header-height)); */
     display: flex;
     /* justify-content: space-between; */
     justify-content: center;
