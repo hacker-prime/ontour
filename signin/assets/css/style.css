@@ -1,0 +1,994 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+input {
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  background-color: #fff;
+  min-height: 100vh;
+  overflow: hidden;
+  /* visibility: hidden; */
+}
+
+.forms-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.signin-signup {
+  /* June 18,2023 - Since I only need the sign in functioniality, we don't need to have the abilit to slide from the sign up panel/section to the sign in panel/section and vice versa. So after commenting out or removing the sign up section, I can then just center the sign in section, otherwise it would be set to the right side of the page on desktop  */
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  /*position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 75%;
+  width: 50%;
+  transition: 1s 0.7s ease-in-out;
+  display: grid;
+  grid-template-columns: 1fr;
+  z-index: 5; */
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0rem 5rem;
+  transition: all 0.2s 0.7s;
+
+
+  /* overflow: hidden; */
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+form.sign-up-form {
+  padding-top: 20vh; /*Neccesary for desktop so that the Sign up section will not go upward out of the screen or window's view*/
+  overflow-y: scroll ;
+  height: 700px;
+
+  opacity: 0;
+  z-index: 1;
+
+    /* https://stackoverflow.com/questions/17295219/overflow-scroll-css-is-not-working-in-the-div/17305302 */
+  /* overflow-y: scroll;
+  height: 100vh; */
+
+  /* overflow-y: scroll ;
+  height: 700px; */
+
+}
+
+form.sign-in-form {
+  z-index: 2;
+}
+
+.errorMessage{
+  text-decoration: underline;
+  color: red;
+  font-weight: 100;
+  position: unset;
+}
+
+.title {
+  font-size: 2.2rem;
+  color: #444;
+  margin-bottom: 10px;
+  /* margin-top: 8vh; */
+}
+
+.title:nth-of-type(1){
+  /* margin-bottom: 25px;
+  margin-top: 50px !important; */
+  /* margin-bottom: 25px;
+  margin-top: 75px !important; */
+}
+
+.title:nth-of-type(2){
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.input-field {
+  /* max-width: 380px; */
+  max-width: 300px;
+  width: 100%;
+  background-color: #f0f0f0;
+  margin: 10px 0;
+  height: 55px;
+  border-radius: 55px;
+  display: grid;
+  grid-template-columns: 15% 85%;
+  padding: 0 0.4rem;
+  position: relative;
+}
+
+.input-field i {
+  text-align: center;
+  line-height: 55px;
+  color: #acacac;
+  transition: 0.5s;
+  font-size: 1.1rem;
+}
+
+.input-field input {
+  background: none;
+  outline: none;
+  border: none;
+  line-height: 1;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.input-field input::placeholder {
+  color: #aaa;
+  font-weight: 500;
+}
+
+
+
+.social-text {
+  padding: 0.7rem 0;
+  font-size: 1rem;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+}
+
+.social-icon {
+  height: 46px;
+  width: 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0.45rem;
+  color: #333;
+  border-radius: 50%;
+  border: 1px solid #333;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: 0.3s;
+}
+
+.social-icon:hover {
+  color: #ff8c6b;
+  border-color: #ff8c6b;
+  cursor: pointer;
+}
+
+.btn {
+  width: 150px;
+  background-color: #ff8c6b;
+  border: none;
+  outline: none;
+  height: 49px;
+  border-radius: 49px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.btn:hover {
+  background-color: #fff;
+  color:#ff8c6b;
+  box-shadow: 2px 2px 30px rgb(0 0 0 / 20%) !important;
+  animation:none;
+}
+
+.sign-up-form .btn{
+  padding:15px;
+}
+
+
+/* https://www.florin-pop.com/blog/2019/03/css-pulse-effect/ */
+.blob {
+	/* border-radius: 50%; */
+	/* margin: 10px; */
+	/* height: 20px;
+	width: 20px; */
+	transform: scale(1);
+}
+
+
+.blob.red {
+	/* background: rgba(255, 114, 94 ); */
+  /* background-image: linear-gradient(315deg, #fc9842 30%, #fe5f75 60%); */
+  /* background-image: linear-gradient(315deg, #fb7ba2 0%, #fce043 74%); */
+  /* https://www.eggradients.com/category/orange-gradient  */
+  /* background-image: linear-gradient(315deg, #ee9617 0%, #fe5858 74%); */
+  background-image: linear-gradient(315deg, #fc9842 0%, #fe5f75 74%);
+  /* linear-gradient(354deg,  #FF75B5, #FFB86C) https://snappify.io/editor#*/
+	box-shadow: 0 0 0 0 rgba(255, 82, 82, 1);
+	animation: pulse-red 2s infinite;
+}
+
+.blob.red:hover{
+  background: #fff;
+}
+
+@keyframes pulse-red {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
+	}
+	
+	70% { 
+    /* transform: scale(1); For some strange reason this causes the button to shrink or appear to shrink slightly and get back to its normal size during the pulsing. The difference between this and the element used on the landing/home page page is that on the login/register page the element is an input field but it's an a tag on the home/landing page so my best guess is that there is some underlying/foundational css property/setting for an input element that's affecting it or ??? Not sure what else at the moment */
+		box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+	}
+	
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+	}
+}
+
+.blob2 {
+	background: black;
+	/* border-radius: 50%; */
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+	margin: 10px;
+	height: 20px;
+	width: 20px;
+	transform: scale(1);
+	animation: pulse-black 2s infinite;
+}
+
+
+.blob2.white {
+	background: white;
+	box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+	animation: pulse-white 2s infinite;
+}
+
+@keyframes pulse-white {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+	}
+	
+	70% {
+    /* transform: scale(1); For some strange reason this causes the button to shrink or appear to shrink slightly and get back to its normal size during the pulsing. The difference between this and the element used on the landing/home page page is that on the login/register page the element is an input field but it's an a tag on the home/landing page so my best guess is that there is some underlying/foundational css property/setting for an input element that's affecting it or ??? Not sure what else at the moment */
+		box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+	}
+	
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+	}
+}
+
+
+.panels-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+ /* June 18,2023 - Since I only need the sign in functioniality, we don't need to have the abilit to slide from the sign up panel/section to the sign in panel/section and vice versa. So after commenting out or removing the sign up section, I can then just center the sign in section, otherwise it would be set to the right side of the page on desktop  */
+/* This needs to be removed because it's covering the sign in form on desktop */
+.container:before {
+  /* content: "";
+  position: absolute;
+  height: 2000px;
+  width: 2000px;
+  top: -10%;
+  right: 48%;
+  transform: translateY(-50%);
+  background-image: linear-gradient(315deg, #fe5f75 0%, #ffc371 74%);  
+  transition: 1.8s ease-in-out;
+  border-radius: 50%;
+  z-index: 6;
+  */
+
+  /* https://www.eggradients.com/category/orange-gradient 
+  https://digitalsynopsis.com/design/beautiful-color-ui-gradients-backgrounds/
+  https://digitalsynopsis.com/wp-content/uploads/2017/07/beautiful-color-ui-gradients-backgrounds-sweet-morning.png
+  background-color:#fb7ba2;
+  background-image: linear-gradient(315deg, #ffafbd 0%, #FF7F50 74%);
+  background-image: linear-gradient(315deg, #ff7e5f 0%, #ffc371 74%); 
+  background-image: linear-gradient(90deg, #FEE140 0%, #FA709A 100%); 
+  background-image: linear-gradient(315deg, #fc9842 15%, #fe5f75 50%);
+  background-image: linear-gradient(-45deg, #ff9381 0%, #ff7e68 100%);
+  background-image: linear-gradient(-45deg, #ffe0d2 0%, #ff7e68 100%);
+  https://www.colorhexa.com/ff9381
+     #ff9381 */  
+}
+
+.image {
+  width: 100%;
+  transition: transform 1.1s ease-in-out;
+  transition-delay: 0.4s;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+  text-align: center;
+  z-index: 6;
+}
+
+.left-panel {
+  pointer-events: all;
+  padding: 3rem 17% 2rem 12%;
+}
+
+.right-panel {
+  pointer-events: none;
+  padding: 3rem 12% 2rem 17%;
+}
+
+.panel .content {
+  color: #fff;
+  transition: transform 0.9s ease-in-out;
+  transition-delay: 0.6s;
+}
+
+.panel h3 {
+  font-weight: 600;
+  line-height: 1;
+  font-size: 1.5rem;
+}
+
+.panel p {
+  font-size: 0.95rem;
+  padding: 0.7rem 0;
+}
+
+.btn.transparent {
+  margin: 0;
+  background: none;
+  border: 2px solid #fff;
+  width: 130px;
+  height: 41px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  /* box-shadow: none !important; */
+}
+
+.btn.transparent:hover{
+  background-color: #fff;
+  color: #ff8c6b;
+  box-shadow: none !important;
+  animation:none;
+}
+
+.right-panel .image,
+.right-panel .content {
+  transform: translateX(800px);
+}
+
+/* ANIMATION */
+
+.container.sign-up-mode:before {
+  transform: translate(100%, -50%);
+  right: 52%;
+}
+
+.container.sign-up-mode .left-panel .image,
+.container.sign-up-mode .left-panel .content {
+  transform: translateX(-800px);
+}
+
+.container.sign-up-mode .signin-signup {
+  left: 25%;
+}
+
+.container.sign-up-mode form.sign-up-form {
+  opacity: 1;
+  z-index: 2;
+}
+
+.container.sign-up-mode form.sign-in-form {
+  opacity: 0;
+  z-index: 1;
+}
+
+.container.sign-up-mode .right-panel .image,
+.container.sign-up-mode .right-panel .content {
+  transform: translateX(0%);
+}
+
+.container.sign-up-mode .left-panel {
+  pointer-events: none;
+}
+
+.container.sign-up-mode .right-panel {
+  pointer-events: all;
+}
+
+@media (max-width: 870px) {
+  .container {
+    min-height: 800px;
+    height: 100vh;
+  }
+  .signin-signup {
+    /* If I remove this here, it will cause the Sign in section to come up, so I should apply the same property to the sign in section to compensate for its removal from the sign up section further up on the page */
+    /* margin-top: 50px; this will be reassigned to h2.title:first-of-type */
+    /* width: 100%; */
+    /* By subtracting 3% from top:95 we will add 3% to .container:before  */
+    /* top: 92%;
+    transform: translate(-50%, -100%);
+    transition: 1s 0.8s ease-in-out; */
+  }
+
+  .signin-signup,
+  .container.sign-up-mode .signin-signup {
+    left: 50%;
+  }
+
+  .panels-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+  }
+
+  .panel {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2.5rem 8%;
+    grid-column: 1 / 2;
+  }
+
+  .right-panel {
+    grid-row: 3 / 4;
+  }
+
+  .left-panel {
+    grid-row: 1 / 2;
+  }
+
+  .image {
+    width: 200px;
+    transition: transform 0.9s ease-in-out;
+    transition-delay: 0.6s;
+  }
+
+  .panel .content {
+    padding-right: 15%;
+    transition: transform 0.9s ease-in-out;
+    transition-delay: 0.8s;
+  }
+
+  .panel h3 {
+    font-size: 1.2rem;
+  }
+
+  .panel p {
+    font-size: 0.7rem;
+    padding: 0.5rem 0;
+  }
+
+  .btn.transparent {
+    width: 110px;
+    height: 35px;
+    font-size: 0.7rem;
+    box-shadow: none;
+  }
+
+  .container:before {
+    width: 1500px;
+    height: 1500px;
+    transform: translateX(-50%);
+    left: 30%;
+    bottom: 68%;
+    right: initial;
+    top: initial;
+    transition: 2s ease-in-out;
+  }
+
+  .container.sign-up-mode:before {
+    transform: translate(-50%, 100%);
+    bottom: 32%;
+    right: initial;
+  }
+
+  .container.sign-up-mode .left-panel .image,
+  .container.sign-up-mode .left-panel .content {
+    transform: translateY(-300px);
+  }
+
+  .container.sign-up-mode .right-panel .image,
+  .container.sign-up-mode .right-panel .content {
+    transform: translateY(0px);
+  }
+
+  .right-panel .image,
+  .right-panel .content {
+    transform: translateY(300px);
+  }
+
+  .container.sign-up-mode .signin-signup {
+    top: 5%;
+    transform: translate(-50%, 0);
+  }
+}
+
+@media (max-width: 570px) {
+  form {
+    padding: 0 1.5rem;
+    padding: 0 0rem;
+  }
+
+  .image {
+    display: none;
+  }
+  .panel .content {
+    padding: 0.5rem 1rem;
+  }
+  .container {
+    padding: 1.5rem;
+  }
+
+  .container:before {
+    /* We add 3% to bottom (previously 72%) but then to balance it out we subtract 3% from .signin-signup */
+    /*This has to be given an extra 2% in the event that the $loginempty error message occurs when someone selects the login button wihtout entering any information in the email and password field*/
+    bottom: 77%;
+    left: 50%;
+  }
+
+  .container.sign-up-mode:before {
+    bottom: 28%;
+    left: 50%;
+  }
+}
+
+
+
+/* https://www.patreon.com/posts/source-code-menu-59269462 */
+.dropdown 
+{
+	position: relative;
+	/* margin-top: 100px; */
+	/* width: 300px; */
+	height: 50px;
+  max-width: 380px;
+  width: 100%;
+}
+.dropdown::before 
+{
+	content: '';
+	position: absolute;
+	top: 15px;
+	right: 20px;
+	width: 8px;
+	height: 8px;
+	border: 2px solid #333;
+	border-top: 2px solid #fff;
+	border-right: 2px solid #fff;
+	transform: rotate(-45deg);
+	z-index: 10;
+	transition: 0.5s;
+}
+.dropdown.active::before 
+{
+	top: 22px;
+	transform: rotate(-225deg);
+}
+.dropdown input 
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	border: none;
+	/* border-radius: 10px; */
+  border-radius: 55px;
+	padding: 12px 20px;
+	font-size: 16px;
+	background: #fff;
+	text-transform: capitalize;
+	box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+	outline: none;
+}
+.dropdown .option 
+{
+	position: absolute;
+	top: 70px;
+	width: 100%;
+	border-radius: 10px;
+	background: #fff;
+	box-shadow: 0 30px 30px rgba(0,0,0,0.05);
+	overflow: hidden;
+	display: none;
+	text-transform: capitalize;
+
+  z-index: 1;
+}
+.dropdown.active .option 
+{
+	display: block;
+}
+.dropdown .option div 
+{
+	padding: 12px 20px;
+	cursor: pointer;
+}
+.dropdown .option div:hover 
+{
+	background: #62baea;
+	color: #fff;
+}
+.dropdown .option ion-icon 
+{
+	position: relative;
+	top: 4px;
+	font-size: 1.2em;
+}
+
+
+/* always show scrollbars */
+/* https://stackoverflow.com/questions/7492062/css-overflow-scroll-always-show-vertical-scroll-bar */
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(255, 147, 129);
+  box-shadow: 0 0 1px rgba(255, 147, 129);
+}
+
+
+
+/* If the browser window is 600px or smaller */
+
+@media only screen and (max-width: 600px) {
+  form.sign-up-form {
+    /* padding-bottom:30vh; */
+    /* padding-bottom: 15vh; /*Works well on mobile view on desktop localhost but not on an actual mobile device*/
+    /* padding-top: 30vh;  */
+    /* padding-bottom: 30vh;
+    padding-top: 45vh; */
+    padding-bottom: 30vh;
+    padding-top: 45vh;
+  }
+  .sign-up-form .title{
+    /* margin-top: 51vh; removing this requires us to also remove .title:nth-of-type(1) { */
+    margin-top:5vh;
+  }
+  
+  .errorMessage{
+    text-align: center;
+    padding:0px 10px;
+  }
+
+}  
+
+/* If the browser window is 600px or larger */
+
+ @media only screen and (min-width: 600px) {
+  form .sign-up-form{
+    padding-top:35vh;
+  }
+  .sign-up-form .title{
+    margin-top: 25vh;
+  }
+  
+} 
+
+/* If the browser window is 400px or smaller */
+
+@media only screen and (max-width: 400px) {
+
+
+  .container{
+    min-height: 910px;
+  }
+
+  form.sign-up-form{
+    height: 760px;
+  }
+
+  .signin-signup {
+    margin-top: 10px;
+  }
+
+
+  form{
+    /* padding-top:120px; */
+    padding-top: 0px;
+  }
+  
+
+} 
+
+
+
+
+/* Forgot Password */
+
+/* Forgot Password */
+
+
+/* Design A Custom Select Box Using HTML, CSS & JavaScript : https://www.youtube.com/watch?v=k4gzE80FKb0 */
+
+
+.select-box,.select-box2,.select-box-login {
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.select-box .options-container{
+  /* background: #2f3640; */
+  /* background: #f0f0f0; */
+  background: #fff;
+  box-shadow: 2px 2px 30px rgb(0 0 0 / 20%);
+  color: #acacac;
+  /* color: #f5f6fa; */
+  max-height: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.4s;
+  border-radius: 8px;
+  overflow: hidden;
+
+  order: 1;
+}
+
+.select-box .option:hover{
+  color:#fff;
+}
+
+.select-box2 .option2:hover{
+  color:#fff;
+}
+
+.select-box-login .option-login:hover{
+  color:#fff;
+}
+
+
+.select-box2 .options-container2 {
+  /* background: #2f3640; */
+  /* background: #f0f0f0; */
+  background: #fff;
+  box-shadow: 2px 2px 30px rgb(0 0 0 / 20%) !important;
+  color: #acacac;
+  /* color: #f5f6fa; */
+  max-height: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.4s;
+  border-radius: 8px;
+  overflow: hidden;
+
+  order: 1;
+}
+
+.select-box-login .options-container-login {
+  box-shadow: 2px 2px 30px rgb(0 0 0 / 20%) !important;
+  /* background: #2f3640; */
+  /* background: #f0f0f0; */
+  color: #acacac;
+  /* color: #f5f6fa; */
+  max-height: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.4s;
+  border-radius: 8px;
+  overflow: hidden;
+
+  order: 1;
+}
+
+.selected,.selected2,.selected-login {
+  /* background: #2f3640; */
+  background-color: #f0f0f0;
+  /* border-radius: 8px; */
+  border-radius: 55px;
+  margin-bottom: 8px;
+  /* color: #f5f6fa; */
+  /* color: #333; */
+  color: #acacac !important;
+  line-height: 1;
+  font-weight: 500;
+  font-size: 1.1rem;
+  position: relative;
+
+  height: 55px;
+
+  order: 0;
+}
+
+.selected::after{
+  content: "";
+  background: url("../img/arrow-down.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  height: 100%;
+  width: 32px;
+  right: 10px;
+  top: 12px;
+
+  transition: all 0.4s;
+}
+
+.selected2::after{
+  content: "";
+  background: url("../img/arrow-down.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  height: 100%;
+  width: 32px;
+  right: 10px;
+  top: 12px;
+
+  transition: all 0.4s;
+}
+
+.selected-login::after{
+  content: "";
+  background: url("../img/arrow-down.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  height: 100%;
+  width: 32px;
+  right: 10px;
+  top: 12px;
+
+  transition: all 0.4s;
+}
+
+
+svg{
+  color:#000;
+}
+
+.select-box .options-container.active{
+  max-height: 240px;
+  opacity: 1;
+  /* overflow-y: scroll; */
+}
+
+.select-box2 .options-container2.active {
+  max-height: 240px;
+  opacity: 1;
+  /* overflow-y: scroll; */
+}
+
+.select-box-login .options-container-login.active {
+  max-height: 240px;
+  opacity: 1;
+  /* overflow-y: scroll; */
+}
+
+
+.select-box .options-container.active + .selected::after,.select-box2 .options-container2.active + .selected2::after,.select-box-login .options-container-login.active + .selected-login::after {
+  transform: rotateX(180deg);
+  top: -12px;
+}
+
+/* .select-box .options-container::-webkit-scrollbar {
+  width: 8px;
+  background: #0d141f;
+  border-radius: 0 8px 8px 0;
+}
+
+.select-box .options-container::-webkit-scrollbar-thumb {
+  background: #525861;
+  border-radius: 0 8px 8px 0;
+} */
+
+.select-box .option,
+.selected,.select-box2 .option2,
+.selected2,.select-box-login .option-login,.selected-login {
+  padding: 18px 24px;
+  cursor: pointer;
+}
+
+.select-box .option:hover,.select-box2 .option2:hover,.select-box-login .option-login:hover {
+  /* https://cssgradient.io/gradient-backgrounds/ */
+  /* background-image: linear-gradient(90deg, #FBDA61 30%, #FF5ACD 100%); */
+  /* https://www.eggradients.com/category/orange-gradient */
+  /* background-image: linear-gradient(315deg, #fb7ba2 0%, #fce043 74%); */
+  /* https://cssgradient.io/shades-of-green/ Android Green */
+  background-color: #32de84;
+  }
+
+.select-box label,.select-box2 label,.select-box-login label {
+  cursor: pointer;
+}
+
+.select-box .option .radio,.select-box2 .option2 .radio,.select-box-login .option-login .radio {
+  display: none;
+}
+
+
+/* Design A Custom Select Box Using HTML, CSS & JavaScript : https://www.youtube.com/watch?v=k4gzE80FKb0 */
+
+/* https://stackoverflow.com/questions/26040875/input-type-date-display-calender-when-clicking-on-box */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+
+/* https://www.youtube.com/watch?v=kUpoxmSo82E - Show/Hide Password Toggle With Javascript | With Source Code */
+span{
+    position: absolute;
+    right:15px;
+    transform:translate(0,-50%);
+    top:50%;
+    cursor:pointer;    
+}
+
+/* https://stackoverflow.com/questions/20321202/not-showing-placeholder-for-input-type-date-field - The answer with 11 votes */
+input[type='date']:after {
+  content: attr(placeholder)
+}
+
+
+@media (max-width: 420px) {
+    
+  /*https://stackoverflow.com/questions/41257777/remove-arrow-input-type-date*/
+  /* .birthday::-webkit-inner-spin-button,
+  .birthday::-webkit-calendar-picker-indicator {
+      display: none;
+      -webkit-appearance: none;
+  } */
+/*   
+  input[type='date']:after {
+    position: absolute;
+  } */
+
+  /* input[type=date]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+  } */
+
+  
+}
