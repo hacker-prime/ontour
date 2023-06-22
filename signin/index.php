@@ -95,9 +95,9 @@ include("handlers/login-handler.php");
 
             </div>
 
-            <center>
+            <!-- <center>
               <a style="color: #5995fd;" href="forgotpassword.php"> Forgot password? </a>
-            </center>
+            </center> -->
             <input type="submit" name="loginButton" value="Sign In" class="btn blob red" />
             <!-- <p class="social-text">Or Sign in with Google</p>
             <div class="social-media">
