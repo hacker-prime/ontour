@@ -1,3 +1,28 @@
+<?php
+// Retrieve the 'status' parameter from the URL
+$status = $_GET['status'];
+
+// Validate the 'status' parameter
+if (empty($status)) {
+    // Handle the case when the parameter is empty
+    // // Redirect or display an error message, for example
+    // header("Location: error.php");
+    // exit;
+}
+
+// Sanitize the 'status' parameter
+$sanitized_value = filter_var($status, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+if($sanitized_value === "success"){
+    $submit_status = "<div class='success'>Tour Uploaded Successfully</div>";
+}
+
+if($sanitized_value === "error"){
+    $submit_status = "<div class='error'>There was an error :(</div>";
+}
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +64,7 @@
                     <div class="item" data-id="uploadtour">
 
                         <?php require_once('form.php'); ?>
-                        
+
                     </div>
  
                     <div class="item" data-id="viewtours">

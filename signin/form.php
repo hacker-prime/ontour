@@ -1,5 +1,8 @@
 <!-- https://www.youtube.com/watch?v=Y9yE98etanU Save HTML Form Data to a MySQL Database using PHP -->
 <form action="process_form.php" method="post">
+
+    <?php echo !empty($submit_status) ? $submit_status : ""; ?>
+
     <label for="name">Name</label>
     <input type="text" id="name" name="name">
 

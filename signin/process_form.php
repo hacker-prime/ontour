@@ -67,9 +67,12 @@ if($stmt = $con->prepare($sql)){
     // $email = "ronweasley@mail.com";
     $stmt->execute();
     
-    echo "Records inserted successfully.";
+    // echo "Records inserted successfully.";
+    header("Location: admin.php?status=success");
+
 } else{
-    echo "ERROR: Could not prepare query: $sql. " . $con->error;
+    // echo "ERROR: Could not prepare query: $sql. " . $con->error;
+    header("Location: admin.php?status=error");
 }
  
 // Close statement

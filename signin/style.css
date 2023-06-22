@@ -208,3 +208,25 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+
+.success{
+background-color: #32de84;
+color:#fff;
+border-radius: 15px;
+text-align: center;
+padding:10px;
+margin-bottom: 15px;
+font-weight:800;
+}
+
+.error{
+background-color: red;
+color:#fff;
+border-radius: 15px;
+text-align: center;
+padding:10px;
+margin-bottom: 15px;
+font-weight:800;
+}
+  
