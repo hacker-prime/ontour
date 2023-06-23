@@ -1,25 +1,56 @@
 <?php
-// Retrieve the 'status' parameter from the URL
-$status = $_GET['status'];
 
-// Validate the 'status' parameter
-if (empty($status)) {
-    // Handle the case when the parameter is empty
-    // // Redirect or display an error message, for example
-    // header("Location: error.php");
-    // exit;
+require_once 'handlers/config.php';
+
+// https://docs.google.com/document/d/10nSjss4yJDp7ycySYUaHYOGx4hydNM8V/edit
+
+if(!empty($_GET['status'])){
+
+    // Retrieve the 'status' parameter from the URL
+    $status = $_GET['status'];
+
+    // Validate the 'status' parameter
+    if (empty($status)) {
+        // Handle the case when the parameter is empty
+        // // Redirect or display an error message, for example
+        // header("Location: error.php");
+        // exit;
+    }
+
+    // Sanitize the 'status' parameter
+    $sanitized_value = filter_var($status, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+    if($sanitized_value === "success"){
+        $submit_status = "<div class='success'>Tour Uploaded Successfully</div>";
+    }
+
+    if($sanitized_value === "error"){
+        $submit_status = "<div class='error'>There was an error :(</div>";
+    }
+
+    if($sanitized_value === "successfulupdate"){
+        $update_status = "<div class='success'>Tour Updated Successfully</div>";
+        echo 
+        <<<EOD
+            <script type="text/javascript">
+                document.addEventListener("DOMContentLoaded", function() {
+
+                    var filterElements = document.querySelector("#filter-btns").children;
+                    for (let j = 0; j < filterElements.length; j++) {
+                        filterElements[j].classList.remove("active")
+                    }
+                    
+                    const lastElement = filterElements[filterElements.length - 1];
+                    lastElement.classList.add("active");
+
+                })
+            </script>
+        EOD;
+    }
+
 }
 
-// Sanitize the 'status' parameter
-$sanitized_value = filter_var($status, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-if($sanitized_value === "success"){
-    $submit_status = "<div class='success'>Tour Uploaded Successfully</div>";
-}
-
-if($sanitized_value === "error"){
-    $submit_status = "<div class='error'>There was an error :(</div>";
-}
 
 ?>
 
@@ -68,10 +99,41 @@ if($sanitized_value === "error"){
                     </div>
  
                     <div class="item" data-id="viewtours">
-                        <div class="inner">
-                            <img src="portfolio/2.jpg" alt="portfolio">
-                            
-                        </div>
+
+                        <?php
+
+                            echo !empty($update_status) ? $update_status : "";
+
+                            // Assuming you have already established a database connection
+                            // and stored it in the $connection variable
+
+                            // Prepare the SQL statement
+                            $query = "SELECT * FROM tours";
+                            $statement = $con->prepare($query);
+
+                            // Execute the statement
+                            $statement->execute();
+
+                            // Get the result set
+                            $result = $statement->get_result();
+
+                            // Fetch and process the results
+                            while ($row = $result->fetch_assoc()) {
+                                // Access the values using the associative array
+                                // echo "Column 1: " . $row['name'] . "<br>";
+                                // echo "Column 2: " . $row['country'] . "<br>";
+                                // echo "Column 3: " . $row['description'] . "<br>";
+                                // echo "<br>";
+                                require ("form2.php");
+                            }
+
+                            // Close the statement and the database connection
+                            $statement->close();
+                            $con->close();
+
+                        ?>
+
+
                     </div>
 
                 </div>
