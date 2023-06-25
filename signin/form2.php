@@ -23,7 +23,7 @@
     <br>
     <img style="margin-top: 15px; display: none;" src="#" id="imagePreviewUpdate_<?php echo $row['id']; ?>" alt="Image Preview">
 
-    <!-- <img style="margin-top: 15px;border: 3px solid #11c4e2;" src="< ?php echo './assets/images/'.($row['image'] ? $row['image'] : 'placeholder image by placehold.co website.png'); ?>" alt="Image Placeholder"> -->
+    <img style="margin-top: 15px;border: 3px solid #11c4e2;" src="<?php echo './assets/images/'.($row['image'] ? $row['image'] : 'placeholder image by placehold.co website.png'); ?>" alt="Image Placeholder">
 
     <br>
 

@@ -43,6 +43,7 @@ if (isset($_POST['delete'])) {
 // Assuming you have already established a database connection
 // and stored it in the $con variable
 
+
 // Prepare the SQL statement
 $query = "UPDATE tours SET name = ?, country = ?, description = ?, price = ?, discount_price = ? WHERE id = ?";
 $statement = $con->prepare($query);
