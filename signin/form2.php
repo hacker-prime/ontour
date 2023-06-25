@@ -1,5 +1,5 @@
 <!-- https://www.youtube.com/watch?v=Y9yE98etanU Save HTML Form Data to a MySQL Database using PHP -->
-<form action="update_form.php" method="post">
+<form action="update_form.php" method="post" enctype="multipart/form-data">
 
     <label for="name">Name</label>
     <input type="text" id="name" name="name" value="<?php echo $row['name'] ?>">
@@ -18,34 +18,12 @@
 
     <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
 
-    <!-- <label for="priority">Priority</label>
-    <select id="priority" name="priority">
-        <option value="1">Low</option>
-        <option value="2" selected>Medium</option>
-        <option value="3">High</option>
-    </select>
+    <label for="image">Image</label>
+    <input type="file" id="image" name="image" accept="image/*" onchange="previewImage(event)">
 
-    <fieldset>
-        <legend>Type</legend>
-
-        <label>
-            <input type="radio" name="type" value="1" checked>
-            Complaint
-        </label>
-
-        <br>
-
-        <label>
-            <input type="radio" name="type" value="2">
-            Suggestion
-        </label>
-
-    </fieldset>
-
-    <label>
-        <input type="checkbox" name="terms">
-        I agree to the terms and conditions
-    </label> -->
+    <br>
+    
+    <img style="margin-top: 15px;border: 3px solid #11c4e2;" id="imagePreview" src="<?php echo './assets/images/'.($row['image'] ? $row['image'] : 'placeholder image by placehold.co website.png'); ?>" alt="Image Preview">
 
     <br>
 
@@ -53,3 +31,13 @@
     <button class="delete" type="submit" name="delete">Delete</button>
 
 </form>
+
+
+
+<script>
+function previewImage(event) {
+    var imagePreview = document.getElementById('imagePreview');
+    imagePreview.style.display = 'block';
+    imagePreview.src = URL.createObjectURL(event.target.files[0]);
+}
+</script>
