@@ -19,11 +19,11 @@
     <input type="hidden" name="id" value="<?php echo $row['id'] ?>">
 
     <label for="image">Image</label>
-    <input type="file" id="image" name="image" accept="image/*" onchange="previewImage(event)">
-
+    <input type="file" id="image_<?php echo $row['id']; ?>" name="image" accept="image/*" onchange="previewImage(event, 'imagePreviewUpdate_<?php echo $row['id']; ?>')">
     <br>
-    
-    <img style="margin-top: 15px;border: 3px solid #11c4e2;" id="imagePreview" src="<?php echo './assets/images/'.($row['image'] ? $row['image'] : 'placeholder image by placehold.co website.png'); ?>" alt="Image Preview">
+    <img style="margin-top: 15px; display: none;" src="#" id="imagePreviewUpdate_<?php echo $row['id']; ?>" alt="Image Preview">
+
+    <!-- <img style="margin-top: 15px;border: 3px solid #11c4e2;" src="< ?php echo './assets/images/'.($row['image'] ? $row['image'] : 'placeholder image by placehold.co website.png'); ?>" alt="Image Placeholder"> -->
 
     <br>
 
@@ -35,8 +35,8 @@
 
 
 <script>
-function previewImage(event) {
-    var imagePreview = document.getElementById('imagePreview');
+function previewImage(event, previewId) {
+    var imagePreview = document.getElementById(previewId);
     imagePreview.style.display = 'block';
     imagePreview.src = URL.createObjectURL(event.target.files[0]);
 }
