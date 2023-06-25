@@ -1,5 +1,5 @@
 <!-- https://www.youtube.com/watch?v=Y9yE98etanU Save HTML Form Data to a MySQL Database using PHP -->
-<form action="process_form.php" method="post">
+<form action="process_form.php" method="post" enctype="multipart/form-data">
 
     <?php echo !empty($submit_status) ? $submit_status : ""; ?>
 
@@ -18,36 +18,25 @@
     <label for="discount_price">Discount Price</label>
     <input type="number" id="discount_price" name="discount_price">
 
-    <!-- <label for="priority">Priority</label>
-    <select id="priority" name="priority">
-        <option value="1">Low</option>
-        <option value="2" selected>Medium</option>
-        <option value="3">High</option>
-    </select>
+    <label for="image">Image</label>
+    <input type="file" id="image" name="image" accept="image/*" onchange="previewImage(event)">
 
-    <fieldset>
-        <legend>Type</legend>
-
-        <label>
-            <input type="radio" name="type" value="1" checked>
-            Complaint
-        </label>
-
-        <br>
-
-        <label>
-            <input type="radio" name="type" value="2">
-            Suggestion
-        </label>
-
-    </fieldset>
-
-    <label>
-        <input type="checkbox" name="terms">
-        I agree to the terms and conditions
-    </label> -->
+    <br>
+    
+    <img id="imagePreview" src="#" alt="Image Preview" style="display: none;">
 
     <br>
 
     <button>Upload</button>
 </form>
+
+<script>
+function previewImage(event) {
+    var imagePreview = document.getElementById('imagePreview');
+    imagePreview.style.display = 'block';
+    // imagePreview.style.margin = 'auto';
+    // imagePreview.style.width = '100%';
+    imagePreview.src = URL.createObjectURL(event.target.files[0]);
+}
+</script>
+
