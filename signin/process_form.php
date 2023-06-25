@@ -37,48 +37,42 @@ require_once 'handlers/config.php';
  *  In summary, this code creates a DateTime object representing the current date and time, sets its timezone to 'Jamaica', and then formats it to a string representation in the format 'Y-m-d H:i:s'. The resulting formatted date and time string is stored in the $signuptime variable.
  *
 **/
-
 $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
 $country = filter_input(INPUT_POST, "country", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
 $description = filter_input(INPUT_POST, "description", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
 $price = filter_input(INPUT_POST, "price", FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-
 $discount_price = filter_input(INPUT_POST, "discount_price", FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-
 $timezone = new DateTimeZone('Jamaica');
 $datetime = new DateTime();
 $datetime->setTimezone($timezone);
 $datetime = $datetime->format('Y-m-d H:i:s');
 
-// https://www.tutorialrepublic.com/php-tutorial/php-mysql-prepared-statements.php - OOP
+// These lines retrieve the name and temporary location of the uploaded image, specify the directory where you want to save the image, and move the uploaded file to the specified directory.$image = $_FILES['image']['name'];
+$image = $_FILES['image']['name'];
+$image_tmp = $_FILES['image']['tmp_name'];
+$image_dir = './assets/images/'; // Current directory
+$image_path = $image_dir . basename($image);
+move_uploaded_file($image_tmp, $image_path);
+
 // Prepare an insert statement
-$sql = "INSERT INTO tours (name, country, description, price, discount_price, datetime) VALUES (?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO tours (name, country, description, price, discount_price, datetime, image) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-if($stmt = $con->prepare($sql)){
+if ($stmt = $con->prepare($sql)) {
     // Bind variables to the prepared statement as parameters
-    $stmt->bind_param("sssdds", $name, $country, $description, $price, $discount_price, $datetime);
-    
-    /* Set the parameters values and execute the statement to insert a row NOTE - We will instead use the variables set/established further up the file */
-    // $first_name = "Ron";
-    // $last_name = "Weasley";
-    // $email = "ronweasley@mail.com";
-    $stmt->execute();
-    
-    // echo "Records inserted successfully.";
-    header("Location: admin.php?status=success");
+    $stmt->bind_param("sssddss", $name, $country, $description, $price, $discount_price, $datetime, $image);
 
-} else{
-    // echo "ERROR: Could not prepare query: $sql. " . $con->error;
+    $stmt->execute();
+
+    header("Location: admin.php?status=success");
+} else {
     header("Location: admin.php?status=error");
 }
- 
+
 // Close statement
 $stmt->close();
- 
+
 // Close connection
 $con->close();
+
 
 ?>
