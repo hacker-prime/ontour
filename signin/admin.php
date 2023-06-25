@@ -48,6 +48,27 @@ if(!empty($_GET['status'])){
         EOD;
     }
 
+    
+    if($sanitized_value === "successfuldelete"){
+        $update_status = "<div class='error'>Tour Deleted Successfully</div>";
+        echo 
+        <<<EOD
+            <script type="text/javascript">
+                document.addEventListener("DOMContentLoaded", function() {
+
+                    var filterElements = document.querySelector("#filter-btns").children;
+                    for (let j = 0; j < filterElements.length; j++) {
+                        filterElements[j].classList.remove("active")
+                    }
+                    
+                    const lastElement = filterElements[filterElements.length - 1];
+                    lastElement.classList.add("active");
+
+                })
+            </script>
+        EOD;
+    }
+
 }
 
 

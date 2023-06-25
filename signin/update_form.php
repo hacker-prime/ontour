@@ -15,24 +15,25 @@ if (isset($_POST['delete'])) {
     $statement = $con->prepare($query);
 
     // Assign the value to the placeholder
-    $idValue = 1;
+    $id = $_POST['id'];
 
     // Bind the value to the statement
-    $statement->bind_param("i", $idValue);
+    $statement->bind_param("i", $id);
 
     // Execute the statement
     $statement->execute();
 
     // Check if the delete was successful
     if ($statement->affected_rows > 0) {
-        echo "Delete successful!";
+        // echo "Delete successful!";
+        header("location: admin.php?status=successfuldelete");
     } else {
         echo "Delete failed.";
     }
 
     // Close the statement and the database connection
-    $statement->close();
-    $con->close();
+    // $statement->close();
+    // $con->close();
 
 
 }
