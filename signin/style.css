@@ -232,8 +232,10 @@ button:hover {
 }
 
 .success{
-background-color: #32de84;
-color:#fff;
+/* background-color: #32de84; */
+/* color:#fff; */
+background-color: #fff;
+color:#32de84;
 border-radius: 15px;
 text-align: center;
 padding:10px;

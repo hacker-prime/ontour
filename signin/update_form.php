@@ -81,9 +81,12 @@ $statement->execute();
 if ($statement->affected_rows > 0) {
     // echo "Update successful!";
     header("location: admin.php?status=successfulupdate");
-} else {
-    echo "Update failed.";
+} else{
+    header("location: admin.php");
 }
+// else {
+//     echo "Update failed.";
+// }
 
 // Close the statement and the database connection
 $statement->close();
