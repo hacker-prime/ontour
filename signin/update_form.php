@@ -43,9 +43,24 @@ if (isset($_POST['delete'])) {
 // Assuming you have already established a database connection
 // and stored it in the $con variable
 
+// These lines retrieve the name and temporary location of the uploaded image, specify the directory where you want to save the image, and move the uploaded file to the specified directory.$image = $_FILES['image']['name'];
+$image = $_FILES['image']['name'];
+$image_tmp = $_FILES['image']['tmp_name'];
+$image_dir = './assets/images/'; // Current directory
+$image_path = $image_dir . basename($image);
+move_uploaded_file($image_tmp, $image_path);
+
+$imagename = $_POST['imagename'];
+
+$image = !empty($image) ? $image : $imagename; 
+
+// if(empty($image)){
+
+
+// }
 
 // Prepare the SQL statement
-$query = "UPDATE tours SET name = ?, country = ?, description = ?, price = ?, discount_price = ? WHERE id = ?";
+$query = "UPDATE tours SET name = ?, country = ?, description = ?, price = ?, discount_price = ?, image = ? WHERE id = ?";
 $statement = $con->prepare($query);
 
 // Assign values to the placeholders
@@ -57,7 +72,7 @@ $discount_price = $_POST['discount_price'];
 $id = $_POST['id'];
 
 // Bind the values to the statement
-$statement->bind_param("sssddi", $name, $country, $description, $price, $discount_price, $id);
+$statement->bind_param("sssddsi", $name, $country, $description, $price, $discount_price, $image, $id);
 
 // Execute the statement
 $statement->execute();

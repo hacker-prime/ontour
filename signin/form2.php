@@ -8,7 +8,7 @@
     <input type="text" id="country" name="country" value="<?php echo $row['country'] ?>">
 
     <label for="description">Description</label>
-    <textarea id="description" name="description" placeholder="<?php echo $row['description'] ?>"></textarea>
+    <textarea id="description" name="description" placeholder="<?php echo $row['description'] ?>" value="<?php echo $row['description'] ?>"><?php echo $row['description'] ?></textarea>
 
     <label for="price">Price</label>
     <input type="number" id="price" name="price" value="<?php echo $row['price'] ?>">
@@ -24,6 +24,8 @@
     <img style="margin-top: 15px; display: none;" src="#" id="imagePreviewUpdate_<?php echo $row['id']; ?>" alt="Image Preview">
 
     <img style="margin-top: 15px;border: 3px solid #11c4e2;" src="<?php echo './assets/images/'.($row['image'] ? $row['image'] : 'placeholder image by placehold.co website.png'); ?>" alt="Image Placeholder">
+
+    <input type="hidden" name="imagename" value="<?php echo $row['image'] ?>">
 
     <br>
 
