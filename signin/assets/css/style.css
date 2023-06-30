@@ -184,13 +184,14 @@ form.sign-in-form {
 
 .btn {
   width: 150px;
-  background-color: #ff8c6b;
+  background-color: #fff;
+  color:#11c4e2;
   border: none;
   outline: none;
   height: 49px;
   border-radius: 49px;
-  color: #fff;
   text-transform: uppercase;
+  box-shadow: 2px 2px 30px rgb(0 0 0 / 10%) !important;
   font-weight: 600;
   margin: 10px 0;
   cursor: pointer;
@@ -198,8 +199,8 @@ form.sign-in-form {
 }
 
 .btn:hover {
-  background-color: #fff;
-  color:#ff8c6b;
+  background-color: #11c4e2;
+  color:#fff;
   box-shadow: 2px 2px 30px rgb(0 0 0 / 20%) !important;
   animation:none;
 }
@@ -219,18 +220,12 @@ form.sign-in-form {
 }
 
 
-.blob.red {
-	/* background: rgba(255, 114, 94 ); */
-  /* background-image: linear-gradient(315deg, #fc9842 30%, #fe5f75 60%); */
-  /* background-image: linear-gradient(315deg, #fb7ba2 0%, #fce043 74%); */
-  /* https://www.eggradients.com/category/orange-gradient  */
-  /* background-image: linear-gradient(315deg, #ee9617 0%, #fe5858 74%); */
+/* .blob.red {
   background-image: linear-gradient(315deg, #fc9842 0%, #fe5f75 74%);
-  /* linear-gradient(354deg,  #FF75B5, #FFB86C) https://snappify.io/editor#*/
 	box-shadow: 0 0 0 0 rgba(255, 82, 82, 1);
 	animation: pulse-red 2s infinite;
-}
-
+} */
+/* 
 .blob.red:hover{
   background: #fff;
 }
@@ -242,7 +237,6 @@ form.sign-in-form {
 	}
 	
 	70% { 
-    /* transform: scale(1); For some strange reason this causes the button to shrink or appear to shrink slightly and get back to its normal size during the pulsing. The difference between this and the element used on the landing/home page page is that on the login/register page the element is an input field but it's an a tag on the home/landing page so my best guess is that there is some underlying/foundational css property/setting for an input element that's affecting it or ??? Not sure what else at the moment */
 		box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
 	}
 	
@@ -250,7 +244,7 @@ form.sign-in-form {
 		transform: scale(0.95);
 		box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
 	}
-}
+} */
 
 .blob2 {
 	background: black;
