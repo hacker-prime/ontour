@@ -183,9 +183,9 @@ form.sign-in-form {
 }
 
 .btn {
+  background-color: #11c4e2;
+  color:#fff;
   width: 150px;
-  background-color: #fff;
-  color:#11c4e2;
   border: none;
   outline: none;
   height: 49px;
@@ -199,8 +199,8 @@ form.sign-in-form {
 }
 
 .btn:hover {
-  background-color: #11c4e2;
-  color:#fff;
+  background-color: #fff;
+  color:#11c4e2;
   box-shadow: 2px 2px 30px rgb(0 0 0 / 20%) !important;
   animation:none;
 }
