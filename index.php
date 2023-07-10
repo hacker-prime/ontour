@@ -19,6 +19,7 @@
     <?php 
 
         // require_once "loadingscreen.php";
+        require_once "signin/handlers/config.php"; 
 
         require_once "navigation.php";
 
@@ -50,6 +51,12 @@
 
     <section id="alltours">
 
+    <?php 
+    
+        require_once('alltours.php');
+
+    ?>
+
     </section>
 
     <section id="contact">
@@ -63,6 +70,27 @@
     <!--===== SCROLL REVEAL =====-->
     <script src="https://unpkg.com/scrollreveal"></script>
     <!--===== SCROLL REVEAL =====-->
+
+    
+    <script>
+
+    function showFullText(button,text) {
+        // var fullText = element.dataset.text;
+        // alert(fullText);
+        // console.log(text);
+        var cardText = button.previousElementSibling;
+        var ellipsis = cardText.nextElementSibling;
+
+        // var cardText = document.getElementById("card_text");
+        cardText.innerHTML = text;
+        
+        // var ellipsis = document.getElementById("card_text_ellipsis");
+        var readMoreButton = document.getElementById("read_more_button");
+        ellipsis.style.display = "none";
+        // readMoreButton.style.display = "none";
+    }
+    </script>
+
 
 </body>
 
