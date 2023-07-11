@@ -51,11 +51,6 @@
 
     <section id="alltours">
 
-    <?php 
-    
-        require_once('alltours.php');
-
-    ?>
 
     </section>
 
