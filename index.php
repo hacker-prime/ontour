@@ -49,6 +49,15 @@
 
     </section>
 
+    <section id="alltours">
+
+    <?php 
+    
+        require_once('alltours.php');
+
+    ?>
+
+    </section>
 
     <section id="contact">
 
