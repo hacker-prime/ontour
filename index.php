@@ -49,10 +49,6 @@
 
     </section>
 
-    <section id="alltours">
-
-
-    </section>
 
     <section id="contact">
 
