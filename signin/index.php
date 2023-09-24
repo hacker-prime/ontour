@@ -51,7 +51,8 @@ include("handlers/login-handler.php");
     <div class="container">  
       <div class="forms-container">
         <div class="signin-signup">
-          <form action="index.php" method="POST" class="sign-in-form">
+        <!-- https://stackoverflow.com/questions/2338102/override-browser-form-filling-and-input-highlighting-with-html-css -->
+          <form autocomplete="off" action="index.php" method="POST" class="sign-in-form">
             <!-- <h2 class="title">Sign In</h2> -->
             <?php echo $account->getError(Constants::$loginEmpty); ?>
             <?php echo $account->getError(Constants::$loginFailed); ?>
