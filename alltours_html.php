@@ -9,7 +9,7 @@
                 <li class="cards_item">
                 <div class="card">
                 <div class="card_image"><img src="<?= 'signin/assets/images/' . $row['image'] ?>"></div>
-                    <span class="card_price card_title2">$<?= $row['price'] ?>JMD</span>
+                    <span class="card_price card_title2">$<?= $row['price'] ?> USD</span>
                     <div class="card_content">
                     <h2 class="card_title"><?= $row['name'] ?></h2>
                     <h2 class="card_title2"></h2>

@@ -59,7 +59,13 @@
 
     </section>
 
-    <section id="contact">
+    <section id="contact" style="height:0vh;">
+
+        <?php 
+        
+            require_once('footer/footer.html');
+
+        ?>
 
     </section>
 
