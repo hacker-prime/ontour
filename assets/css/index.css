@@ -155,9 +155,9 @@ a{
 
 /* Required To Test The Active Menu Iem On Page Scroll Feature  */
 
-section {
+/* section {
     height: 100vh;
-}
+} */
 
 #airport{
     /* background-color: rgba(0,171,235,1); */
@@ -192,7 +192,7 @@ section {
 
 #alltours {
     /* background-color: aquamarine; */
-    height: 100vh;
+    /* height: 100vh; */
     /* These two are necessary to work with the active menu item on scroll feature. Each on its own isn't enough as when you select on the navigation menu item and it scrolls down to the section, it will start at the very top of the section but go down pass it and or if it doesn't the relevant navigation menu item, in this cass "All Tours" will not be highlighted and or assigned the active class. It will only happen once you scroll down a bit more on the section. */
     margin-top: 50px;
     padding-top: 50px;
@@ -218,7 +218,7 @@ section {
 
 #contact{
     /* background-color: deeppink;  */
-    height: 100vh;
+    /* height: 100vh; */
 } 
 
 /* Required To Test The Active Menu Iem On Page Scroll Feature  */
@@ -554,7 +554,7 @@ section {
     padding-top: 10px; */
     padding: 10px;
     border-radius: 0 0 1.875rem 0;
-    background-color: var(--on-tour-logo-color-2);
+    background-color:#FFAC1C;
   }
   
   .card_content {
